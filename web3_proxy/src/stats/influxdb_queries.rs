@@ -201,6 +201,7 @@ pub async fn query_user_stats<'a>(
         .await
         .context("failed parsing query result into a FluxRecord")?;
 
+    warn!("Influx response is: {:?}", raw_influx_responses);
     // Basically rename all items to be "total",
     // calculate number of "archive_needed" and "error_responses" through their boolean representations ...
     // HashMap<String, serde_json::Value>
